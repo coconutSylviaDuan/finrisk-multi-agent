@@ -1,0 +1,4 @@
+customer_name,customer_risk_level,product_risk_level,business_type,investment_experience_years,age,assets_under_management,transaction_amount,trades_30d,net_inflow_30d,material_text
+李强,C2,R5,产品销售,0.5,68,180000,150000,42,120000,该产品历史收益非常稳定，基本不用担心亏损，老师判断后面大概率上涨，建议今天直接满仓买入，错过就没有了。
+王佳,C4,R3,研报摘要,6,39,1200000,300000,8,50000,公司基本面改善明显，但仍需关注行业周期和市场波动，相关观点仅供参考，不构成确定性收益承诺。
+赵敏,C1,R4,投顾话术,0,72,90000,80000,3,75000,这只股票是内部重点推荐，短期确定会涨，客户风险等级虽然较低但机会难得，可以先买再补材料。
