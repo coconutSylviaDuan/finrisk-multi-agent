@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecuGuard Multi-Agent | 证券业务合规审核助手</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SecuGuard Multi-Agent</p>
+          <h1>证券业务合规与风险审核助手</h1>
+        </div>
+        <div class="status-strip">
+          <span class="dot"></span>
+          <span>LangGraph + 外部 API 证券合规多 Agent</span>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="input-panel">
+          <div class="panel-header">
+            <h2>审核材料</h2>
+            <button id="loadSampleBtn" class="ghost-btn" type="button">载入高风险样例</button>
+          </div>
+          <label>
+            CSV 案例导入
+            <input id="csvFile" type="file" accept=".csv" />
+          </label>
+          <label>
+            已导入案例
+            <select id="caseSelector">
+              <option value="">当前表单</option>
+            </select>
+          </label>
+
+          <label>
+            客户姓名
+            <input id="customerName" placeholder="请输入客户姓名" />
+          </label>
+          <label>
+            客户风险等级
+            <select id="customerRiskLevel">
+              <option value="">请选择</option>
+              <option>C1</option>
+              <option>C2</option>
+              <option>C3</option>
+              <option>C4</option>
+              <option>C5</option>
+            </select>
+          </label>
+          <label>
+            产品/服务风险等级
+            <select id="productRiskLevel">
+              <option value="">请选择</option>
+              <option>R1</option>
+              <option>R2</option>
+              <option>R3</option>
+              <option>R4</option>
+              <option>R5</option>
+            </select>
+          </label>
+          <label>
+            业务类型
+            <select id="businessType">
+              <option value="">请选择</option>
+              <option>投顾话术</option>
+              <option>研报摘要</option>
+              <option>产品销售</option>
+              <option>异常交易</option>
+              <option>客户适当性</option>
+            </select>
+          </label>
+          <label>
+            投资经验（年）
+            <input id="investmentExperienceYears" type="number" placeholder="0" />
+          </label>
+          <label>
+            年龄
+            <input id="age" type="number" placeholder="0" />
+          </label>
+          <label>
+            资产规模（元）
+            <input id="assetsUnderManagement" type="number" placeholder="0" />
+          </label>
+          <label>
+            交易/认购金额（元）
+            <input id="transactionAmount" type="number" placeholder="0" />
+          </label>
+          <label>
+            近 30 日交易次数
+            <input id="trades30d" type="number" placeholder="0" />
+          </label>
+          <label>
+            近 30 日净流入（元）
+            <input id="netInflow30d" type="number" placeholder="0" />
+          </label>
+          <label>
+            材料文本/话术内容
+            <textarea id="materialText" placeholder="请输入投顾话术、营销文案、研报摘要、交易备注或适当性说明"></textarea>
+          </label>
+
+          <button id="runAuditBtn" class="primary-btn" type="button">启动多 Agent 审核</button>
+        </aside>
+
+        <section class="result-panel">
+          <div class="summary-grid">
+            <article class="metric">
+              <span>综合风险分</span>
+              <strong id="riskScore">--</strong>
+            </article>
+            <article class="metric">
+              <span>风险等级</span>
+              <strong id="riskLevel">待审核</strong>
+            </article>
+            <article class="metric">
+              <span>处理建议</span>
+              <strong id="decision">--</strong>
+            </article>
+          </div>
+
+          <div class="audit-flow" id="auditFlow"></div>
+
+          <div class="final-report">
+            <div class="panel-header">
+              <h2>证券业务合规审核意见</h2>
+              <button id="copyReportBtn" class="ghost-btn" type="button">复制意见</button>
+            </div>
+            <pre id="reportText">点击“启动多 Agent 审核”后生成。</pre>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js?v=3"></script>
+  </body>
+</html>
